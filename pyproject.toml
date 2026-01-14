@@ -1,0 +1,39 @@
+[project]
+name = "wind-curtailment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.0",
+    "altair==4.2.2",
+    "argon2-cffi==21.3.0",
+    "argon2-cffi-bindings==21.2.0",
+    "fastapi>=0.128.0",
+    "numpy>1.23.4",
+    "openpyxl>=3.1.5",
+    "pandas>1.5.3",
+    "plotly>=6.5.1",
+    "powerdict>=0.0.2",
+    "psutil>=7.2.1",
+    "psycopg2>=2.9.11",
+    "pyarrow>=22.0.0",
+    "pydantic>=2.12.5",
+    "pytest>=9.0.2",
+    "pyyaml>=6.0.3",
+    "qtpy>=2.4.3",
+    "requests>=2.32.5",
+    "sp2ts>=1.0.0",
+    "sqlalchemy==1.4.37",
+    "streamlit==1.16.0",
+    "streamlit-camera-input-live==0.2.0",
+    "streamlit-card==0.0.4",
+    "streamlit-embedcode==0.1.2",
+    "streamlit-extras==0.2.4",
+    "streamlit-faker==0.0.2",
+    "streamlit-keyup==0.2.0",
+    "streamlit-toggle-switch==1.0.2",
+    "streamlit-vertical-slider==1.0.2",
+    "uvicorn>=0.40.0",
+    "xlrd>=2.0.2",
+]
