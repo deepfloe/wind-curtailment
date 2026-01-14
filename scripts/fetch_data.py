@@ -3,12 +3,21 @@ import logging
 import pandas as pd
 from sqlalchemy import create_engine
 
+import sys
+from sys import path
+
+path.append(r'C:\wind-curtailment')
+
 from lib.constants import DATA_DIR
 from lib.data.fetch_boa_data import run_boa
 from lib.db_utils import drop_and_initialize_tables
 
 engine = create_engine("sqlite:///phys_data.db", echo=False)
-df_bm_units = pd.read_excel(DATA_DIR / "BMUFuelType.xls", header=0)
+
+with engine.connect():  # opens connection → SQLite creates the file if missing
+    pass
+
+df_bm_units = pd.read_csv(DATA_DIR / "BMU.csv", header=0)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
