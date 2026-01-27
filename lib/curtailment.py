@@ -55,6 +55,7 @@ def linearize_physical_data(df: pd.DataFrame):
     if len(df) == 0:
         return pd.DataFrame(columns=base_columns + ["Level", "Time"])
 
+    #BA: so the level data combines "from" with "to"
     df = pd.concat(
         (
             df[base_columns + from_columns].rename(columns={"levelFrom": "Level", "timeFrom": "Time"}),
@@ -137,10 +138,12 @@ def analyze_one_unit(
 
     # We merge BOAL to FPN, so all FPN data is preserved. We want to include
     # units with an FPN but not BOAL
+    #BA: Level_BOAL is based on the "Level" Columns
     df_merged = unit_fpn_resolved.join(unit_boal_resolved["Level"], lsuffix="_FPN", rsuffix="_BOAL")
 
     # If there is no BOALF, then the level after the BOAL is the same as the FPN!
     df_merged["Level_After_BOAL"] = df_merged["Level_BOAL"].fillna(df_merged["Level_FPN"])
+    #BA: fundamental equation: we're using Level_After_BOAL
     df_merged["delta"] = df_merged["Level_FPN"] - df_merged["Level_After_BOAL"]
 
     # unsure if we should take '1' or '-1'. they seemd to have the same 'bidPrice'
